@@ -1,0 +1,21 @@
+agent,equivalence_class,distance_encoding,sum_syntax,choose_notation,n_hypothesis_form,bridge_status,lexicographic_status,compiled_lean_v4.29.0-rc3_mathlib_777aaa6,compile_note
+01,E1,hammingDist,∈,(n-1).choose dot,0 < n,reference class E1,EXACT MATCH within class after alpha-renaming,PASS,type-checks; only the expected `declaration uses sorry` warning
+02,E1,hammingDist,∈,(n-1).choose dot,0 < n,reference class E1,EXACT MATCH within class after alpha-renaming,PASS,type-checks; only the expected `declaration uses sorry` warning
+03,E1,hammingDist,∈,(n-1).choose dot,0 < n,reference class E1,EXACT MATCH within class after alpha-renaming,PASS,type-checks; only the expected `declaration uses sorry` warning
+04,E2,inline_filter,∈,Nat.choose prefix,1 ≤ n,BRIDGED to E1 (definitional equality: dot-notation / Nat.lt unfolding / hammingDist unfolds to filter-card),EXACT MATCH within class after alpha-renaming,PASS,type-checks; only the expected `declaration uses sorry` warning
+05,E1,hammingDist,∈,(n-1).choose dot,0 < n,reference class E1,EXACT MATCH within class after alpha-renaming,PASS,type-checks; only the expected `declaration uses sorry` warning
+06,E1,hammingDist,∈,(n-1).choose dot,0 < n,reference class E1,EXACT MATCH within class after alpha-renaming,PASS,type-checks; only the expected `declaration uses sorry` warning
+07,E1,inline_filter,∈,(n-1).choose dot,0 < n,reference class E1,EXACT MATCH within class after alpha-renaming,PASS,type-checks; only the expected `declaration uses sorry` warning
+08,E1,hammingDist,∈,(n-1).choose dot,0 < n,reference class E1,EXACT MATCH within class after alpha-renaming,PASS,type-checks; only the expected `declaration uses sorry` warning
+09,E1,inline_filter,∈,(n-1).choose dot,0 < n,reference class E1,EXACT MATCH within class after alpha-renaming,PASS,type-checks; only the expected `declaration uses sorry` warning
+10,E1,inline_filter,∈,Nat.choose prefix,0 < n,reference class E1,EXACT MATCH within class after alpha-renaming,PASS,type-checks; only the expected `declaration uses sorry` warning
+11,E1,inline_filter,in (old),(n-1).choose dot,0 < n,reference class E1,EXACT MATCH within class after alpha-renaming,FAIL,"parse error: legacy `∑ i in s` sum-binder syntax not accepted by this Mathlib rev (777aaa6, Lean v4.29.0-rc3); needs `∑ i ∈ s`"
+12,E1,inline_filter,∈,(n-1).choose dot,1 ≤ n,reference class E1,EXACT MATCH within class after alpha-renaming,PASS,type-checks; only the expected `declaration uses sorry` warning
+13,E1,inline_filter,∈,Nat.choose prefix,0 < n,reference class E1,EXACT MATCH within class after alpha-renaming,PASS,type-checks; only the expected `declaration uses sorry` warning
+14,E1,inline_filter,∈,(n-1).choose dot,0 < n,reference class E1,EXACT MATCH within class after alpha-renaming,PASS,type-checks; only the expected `declaration uses sorry` warning
+15,E1,hammingDist,∈,(n-1).choose dot,0 < n,reference class E1,EXACT MATCH within class after alpha-renaming,PASS,type-checks; only the expected `declaration uses sorry` warning
+16,E1,inline_filter,∈,Nat.choose prefix,0 < n,reference class E1,EXACT MATCH within class after alpha-renaming,PASS,type-checks; only the expected `declaration uses sorry` warning
+17,E1,inline_filter,∈,Nat.choose prefix,0 < n,reference class E1,EXACT MATCH within class after alpha-renaming,PASS,type-checks; only the expected `declaration uses sorry` warning
+18,E3,hammingDist,∈,(n-1).choose dot,1 ≤ n,BRIDGED to E1 (definitional equality: dot-notation / Nat.lt unfolding / hammingDist unfolds to filter-card),EXACT MATCH within class after alpha-renaming,PASS,type-checks; only the expected `declaration uses sorry` warning
+19,E1,inline_filter,in (old),(n-1).choose dot,0 < n,reference class E1,EXACT MATCH within class after alpha-renaming,FAIL,"parse error: legacy `∑ i in s` sum-binder syntax not accepted by this Mathlib rev (777aaa6, Lean v4.29.0-rc3); needs `∑ i ∈ s`"
+20,E1,inline_filter,∈,(n-1).choose dot,0 < n,reference class E1,EXACT MATCH within class after alpha-renaming,PASS,type-checks; only the expected `declaration uses sorry` warning
