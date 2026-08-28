@@ -1,15 +1,16 @@
 # agent-formalization-thunderdome
 
-Independent-agent formalization diversity studies: for a given theorem, spawn 20
-context-isolated agents, have each independently produce a Lean 4 formalization of
-the statement (no coordination, no proof required — `:= by sorry`), then compare
-the 20 results for equivalence by (1) bridging — arguing/proving that differently
-shaped formalizations assert the same thing, and (2) a lexicographic
-"looks-good-enough" check — clustering formalizations that are textually identical
-after normalization. All results were additionally **compiled** against a live
-Lean/Mathlib checkout (`leanprover/lean4:v4.29.0-rc3`, Mathlib commit
-`777aaa61dcd2a1258d2b4962dbe983ede4d23b2e`) to verify both the formalizations
-themselves and the hand-argued bridge claims.
+Independent-agent formalization diversity studies: for a given theorem, spawn N
+context-isolated agents (N = 20 or 100 so far), have each independently produce a
+Lean 4 formalization of the statement (no coordination, no proof required —
+`:= by sorry`), then compare the results for equivalence by (1) bridging —
+arguing/proving that differently shaped formalizations assert the same thing, and
+(2) a lexicographic "looks-good-enough" check — clustering formalizations that are
+textually identical after normalization. The 20-agent runs were additionally
+**compiled** against a live Lean/Mathlib checkout (`leanprover/lean4:v4.29.0-rc3`,
+Mathlib commit `777aaa61dcd2a1258d2b4962dbe983ede4d23b2e`) to verify both the
+formalizations and the hand-argued bridge claims. The 100-agent run is
+formalization-only: no comparison component, and the files were not compiled.
 
 ## Results
 
@@ -47,10 +48,32 @@ themselves and the hand-argued bridge claims.
   [`glaisher_equivalence.csv`](glaisher-workspace/comparison/glaisher_equivalence.csv),
   [`bridges.lean`](glaisher-workspace/comparison/bridges.lean).
 
+### [`sunflower-workspace/`](sunflower-workspace) — improved sunflower lemma (log bound)
+
+- **100 agents**, formalization-only (no bridging, not compiled). Target: the
+  Alweiss–Lovett–Wu–Zhang / Rao / Bell–Chueluecha–Warnke bound
+  `f(k,r) ≤ (C·r·log k)^k`.
+- **Very low diversity**, like GVB: **100/100** used `W : Finset (Finset α)` over
+  an ambient `[DecidableEq α]`, `Finset.card`, `Real.log` (natural log), an
+  outermost `∃ C : ℝ, 0 < C`, a locally-defined core-based sunflower predicate,
+  and no nonempty-petal requirement. Zero used `Real.logb 2`, `Nat.log`,
+  `Set.ncard`, or a `Set`-with-finiteness representation.
+- The one axis with a real modelling decision — the `k ≤ 1` degeneracy of
+  `(C·r·log k)^k` (`log 1 = 0` makes the bound false, since `f(1,r) = r`) — split
+  **73 / 27**: exclude it with a `2 ≤ k` hypothesis, vs. keep `0 < k` and patch the
+  logarithm (`Real.log (k+1)`, 18; `max 1 (Real.log k)`, 9). Other differences
+  (explicit `∀∀` vs. `Set.Pairwise` core condition, redundant `Y ⊆ member` clause,
+  where `𝒮.card = r` lives, a second `f(k,r)` restatement in 72 files) are
+  cosmetic.
+- Details: [`sunflower-workspace/REPORT.md`](sunflower-workspace/REPORT.md),
+  [`sunflower-workspace/PROMPT.md`](sunflower-workspace/PROMPT.md).
+
 ## Takeaway
 
-No agent, in either run, formalized a mathematically wrong statement. The two runs
-differ mainly in how much genuine diversity the prompt left room for (GVB's prompt
-was more leading), and compilation caught real issues — a syntax incompatibility in
-2/20 GVB files, and a wrong lemma name during bridge-writing — that pure inspection
-missed.
+No agent, in any run, formalized a mathematically wrong statement. The runs differ
+mainly in how much genuine diversity the prompt left room for: GVB and the
+sunflower run spelled the bound out symbolically and got near-total convergence
+(one true equivalence class / one shared skeleton), while Glaisher's leaner prompt
+produced real structural diversity across 6 groups. Where compilation was run
+(the 20-agent runs) it caught real issues pure inspection missed — a syntax
+incompatibility in 2/20 GVB files, and a wrong lemma name during bridge-writing.
