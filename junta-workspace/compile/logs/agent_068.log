@@ -1,0 +1,4 @@
+/Users/hye-ryeonlee/agent-formalization-thunderdome/junta-workspace/formalizations/agent_068.lean:54:90: error: unexpected token 'open'; expected 'lemma'
+/Users/hye-ryeonlee/agent-formalization-thunderdome/junta-workspace/formalizations/agent_068.lean:64:8: warning: declaration uses `sorry`
+/Users/hye-ryeonlee/agent-formalization-thunderdome/junta-workspace/formalizations/agent_068.lean:74:8: warning: declaration uses `sorry`
+/Users/hye-ryeonlee/agent-formalization-thunderdome/junta-workspace/formalizations/agent_068.lean:84:8: warning: declaration uses `sorry`

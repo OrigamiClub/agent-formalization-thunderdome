@@ -1,0 +1,4 @@
+/Users/hye-ryeonlee/agent-formalization-thunderdome/junta-workspace/formalizations/agent_067.lean:49:8: warning: declaration uses `sorry`
+/Users/hye-ryeonlee/agent-formalization-thunderdome/junta-workspace/formalizations/agent_067.lean:57:8: warning: declaration uses `sorry`
+/Users/hye-ryeonlee/agent-formalization-thunderdome/junta-workspace/formalizations/agent_067.lean:81:45: warning: `mul_le_mul_right'` has been deprecated: Use `mul_le_mul_left` instead
+/Users/hye-ryeonlee/agent-formalization-thunderdome/junta-workspace/formalizations/agent_067.lean:93:8: warning: declaration uses `sorry`

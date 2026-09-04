@@ -1,0 +1,11 @@
+/Users/hye-ryeonlee/agent-formalization-thunderdome/junta-workspace/formalizations/agent_015.lean:52:6: error: Application type mismatch: The argument
+  ↑S
+has type
+  Finset (Fin n)
+but is expected to have type
+  Finset ℕ
+in the application
+  {a ∈ ↑S | i * e ≤ a ∧ a < i * e + e}
+/Users/hye-ryeonlee/agent-formalization-thunderdome/junta-workspace/formalizations/agent_015.lean:57:8: warning: declaration uses `sorry`
+/Users/hye-ryeonlee/agent-formalization-thunderdome/junta-workspace/formalizations/agent_015.lean:65:8: warning: declaration uses `sorry`
+/Users/hye-ryeonlee/agent-formalization-thunderdome/junta-workspace/formalizations/agent_015.lean:75:8: warning: declaration uses `sorry`

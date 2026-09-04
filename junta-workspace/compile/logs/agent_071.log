@@ -1,0 +1,5 @@
+/Users/hye-ryeonlee/agent-formalization-thunderdome/junta-workspace/formalizations/agent_071.lean:65:8: warning: declaration uses `sorry`
+/Users/hye-ryeonlee/agent-formalization-thunderdome/junta-workspace/formalizations/agent_071.lean:78:8: warning: declaration uses `sorry`
+/Users/hye-ryeonlee/agent-formalization-thunderdome/junta-workspace/formalizations/agent_071.lean:89:4: error(lean.dependsOnNoncomputable): failed to compile definition, consider marking it as 'noncomputable' because it depends on 'MvPolynomial.instCommRingMvPolynomial', which is 'noncomputable'
+/Users/hye-ryeonlee/agent-formalization-thunderdome/junta-workspace/formalizations/agent_071.lean:97:4: error(lean.dependsOnNoncomputable): failed to compile definition, consider marking it as 'noncomputable' because it depends on 'MvPolynomial.commSemiring', which is 'noncomputable'
+/Users/hye-ryeonlee/agent-formalization-thunderdome/junta-workspace/formalizations/agent_071.lean:106:8: warning: declaration uses `sorry`

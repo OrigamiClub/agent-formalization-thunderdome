@@ -9,8 +9,9 @@ arguing/proving that differently shaped formalizations assert the same thing, an
 textually identical after normalization. The 20-agent runs were additionally
 **compiled** against a live Lean/Mathlib checkout (`leanprover/lean4:v4.29.0-rc3`,
 Mathlib commit `777aaa61dcd2a1258d2b4962dbe983ede4d23b2e`) to verify both the
-formalizations and the hand-argued bridge claims. The 100-agent run is
-formalization-only: no comparison component, and the files were not compiled.
+formalizations and the hand-argued bridge claims. The two 100-agent runs skip the
+comparison component; of those, the sunflower run was not compiled and the junta
+run was compiled against the same pinned checkout.
 
 ## Results
 
@@ -68,6 +69,34 @@ formalization-only: no comparison component, and the files were not compiled.
 - Details: [`sunflower-workspace/REPORT.md`](sunflower-workspace/REPORT.md),
   [`sunflower-workspace/PROMPT.md`](sunflower-workspace/PROMPT.md).
 
+### [`junta-workspace/`](junta-workspace) — Boolean degree-`d` functions on the slice are juntas
+
+- **100 agents**, formalization-only (no bridging), but **compiled**. Target:
+  Filmus–Ihringer Theorem 1.1 (arXiv:2203.04760) — for `d ≥ 1` there is a constant
+  `m(d)` such that `k ≥ 2d` forces every Boolean degree-`d` function on the slice
+  `binom([n],k)` to be an `m(d)`-junta; converse for `1 ≤ k < 2d` with an explicit
+  witnessing family. **Each agent chose** which parts to state (74/100 stated all
+  three: forward, converse, explicit family).
+- **Harder to state** than the earlier targets (no Mathlib "Boolean degree" API;
+  "degree-`d` on the slice" and "`m`-junta" both built from scratch) — yet still
+  near-total convergence on the parts with a natural rendering: **100/100** on
+  real-valued codomain + separate `{0,1}` predicate, the
+  `MvPolynomial`/`totalDegree` degree definition, the
+  `∃ J, J.card ≤ m ∧ (S∩J = T∩J → f S = f T)` junta predicate, and `∃ m(d)`.
+- Real divergence only where the prompt underdetermined: slice representation
+  (`Fin n` subtype **84** / side-condition **~9** / `ℕ`-indexed **~9**), how much
+  of the two-directional theorem to state, and the witness formula — **35 agents
+  independently flagged that the prompt's literal `∏_i(Σ_j x)` is not Boolean on
+  the slice and substituted the paper's dual `Σ_i(∏_j x)` form**.
+- **Compiled**: **90/100 PASS**. All 10 failures are mechanical and leave the
+  theorem statements themselves elaborating: 5× a helper `def` needs
+  `noncomputable` (`MvPolynomial` ring is noncomputable), 4× a `Finset (Fin n)`
+  vs. `ℕ` binder-coercion slip in the witness family, 1× a stray `open` token.
+  Zero wrong propositions.
+- Details: [`junta-workspace/REPORT.md`](junta-workspace/REPORT.md),
+  [`junta-workspace/PROMPT.md`](junta-workspace/PROMPT.md),
+  [`junta-workspace/compile/results.csv`](junta-workspace/compile/results.csv).
+
 ## Takeaway
 
 No agent, in any run, formalized a mathematically wrong statement. The runs differ
@@ -75,5 +104,8 @@ mainly in how much genuine diversity the prompt left room for: GVB and the
 sunflower run spelled the bound out symbolically and got near-total convergence
 (one true equivalence class / one shared skeleton), while Glaisher's leaner prompt
 produced real structural diversity across 6 groups. Where compilation was run
-(the 20-agent runs) it caught real issues pure inspection missed — a syntax
-incompatibility in 2/20 GVB files, and a wrong lemma name during bridge-writing.
+(both 20-agent runs and the 100-agent junta run) it caught real issues pure
+inspection missed — a syntax incompatibility in 2/20 GVB files, a wrong lemma name
+during bridge-writing, and 10/100 junta files with a missing `noncomputable`, a
+binder-coercion slip, or a stray token — but never a mathematically wrong
+statement.

@@ -1,0 +1,101 @@
+agent,status,detail
+agent_001,PASS,clean
+agent_002,PASS,clean
+agent_003,FAIL,exit 1
+agent_004,PASS,clean
+agent_005,PASS,clean
+agent_006,PASS,clean
+agent_007,PASS,clean
+agent_008,PASS,clean
+agent_009,PASS,clean
+agent_010,PASS,clean
+agent_011,PASS,clean
+agent_012,PASS,clean
+agent_013,FAIL,exit 1
+agent_014,PASS,clean
+agent_015,FAIL,/Users/hye-ryeonlee/agent-formalization-thunderdome/junta-workspace/formalizations/agent_015.lean:52:6: error: Application type mismatch: The argument
+agent_016,PASS,clean
+agent_017,PASS,clean
+agent_018,PASS,clean
+agent_019,PASS,clean
+agent_020,PASS,clean
+agent_021,PASS,clean
+agent_022,PASS,clean
+agent_023,PASS,clean
+agent_024,PASS,clean
+agent_025,PASS,clean
+agent_026,FAIL,/Users/hye-ryeonlee/agent-formalization-thunderdome/junta-workspace/formalizations/agent_026.lean:79:26: error: Application type mismatch: The argument
+agent_027,PASS,clean
+agent_028,PASS,clean
+agent_029,PASS,clean
+agent_030,PASS,clean
+agent_031,PASS,clean
+agent_032,FAIL,/Users/hye-ryeonlee/agent-formalization-thunderdome/junta-workspace/formalizations/agent_032.lean:78:6: error: Application type mismatch: The argument
+agent_033,PASS,clean
+agent_034,PASS,clean
+agent_035,PASS,clean
+agent_036,PASS,clean
+agent_037,PASS,clean
+agent_038,PASS,clean
+agent_039,PASS,clean
+agent_040,PASS,clean
+agent_041,PASS,clean
+agent_042,PASS,clean
+agent_043,PASS,clean
+agent_044,PASS,clean
+agent_045,PASS,clean
+agent_046,PASS,clean
+agent_047,PASS,clean
+agent_048,PASS,clean
+agent_049,PASS,clean
+agent_050,PASS,clean
+agent_051,PASS,clean
+agent_052,PASS,clean
+agent_053,PASS,clean
+agent_054,FAIL,exit 1
+agent_055,PASS,clean
+agent_056,PASS,clean
+agent_057,PASS,clean
+agent_058,PASS,clean
+agent_059,PASS,clean
+agent_060,PASS,clean
+agent_061,PASS,clean
+agent_062,PASS,clean
+agent_063,PASS,clean
+agent_064,PASS,clean
+agent_065,PASS,clean
+agent_066,PASS,clean
+agent_067,PASS,clean
+agent_068,FAIL,/Users/hye-ryeonlee/agent-formalization-thunderdome/junta-workspace/formalizations/agent_068.lean:54:90: error: unexpected token 'open'  expected 'lemma'
+agent_069,PASS,clean
+agent_070,PASS,clean
+agent_071,FAIL,exit 1
+agent_072,PASS,clean
+agent_073,PASS,clean
+agent_074,PASS,clean
+agent_075,PASS,clean
+agent_076,PASS,clean
+agent_077,PASS,clean
+agent_078,PASS,clean
+agent_079,PASS,clean
+agent_080,PASS,clean
+agent_081,PASS,clean
+agent_082,PASS,clean
+agent_083,PASS,clean
+agent_084,PASS,clean
+agent_085,PASS,clean
+agent_086,PASS,clean
+agent_087,PASS,clean
+agent_088,PASS,clean
+agent_089,FAIL,/Users/hye-ryeonlee/agent-formalization-thunderdome/junta-workspace/formalizations/agent_089.lean:78:8: error: Application type mismatch: The argument
+agent_090,PASS,clean
+agent_091,PASS,clean
+agent_092,PASS,clean
+agent_093,PASS,clean
+agent_094,PASS,clean
+agent_095,PASS,clean
+agent_096,PASS,clean
+agent_097,PASS,clean
+agent_098,PASS,clean
+agent_099,PASS,clean
+agent_100,FAIL,exit 1
