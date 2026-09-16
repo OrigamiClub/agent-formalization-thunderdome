@@ -88,7 +88,7 @@ def block (n e i : ℕ) : Finset (Fin n) :=
   Finset.univ.filter (fun x : Fin n => i * e ≤ (x : ℕ) ∧ (x : ℕ) < i * e + e)
 
 /-- The explicit real polynomial `∑_{i < ℓ} ∏_{x ∈ block i} X x`. -/
-def explicitPoly (n e ℓ : ℕ) : MvPolynomial (Fin n) ℝ :=
+noncomputable def explicitPoly (n e ℓ : ℕ) : MvPolynomial (Fin n) ℝ :=
   ∑ i ∈ Finset.range ℓ, ∏ x ∈ block n e i, MvPolynomial.X x
 
 /-- The explicit Boolean witness: `1` iff some `min d k`-block is contained in `S`. -/

@@ -101,3 +101,14 @@
 === SUMMARY ===
   10 FAIL
   90 PASS
+[PASS] agent_003
+[PASS] agent_013
+[PASS] agent_015
+[PASS] agent_026
+[PASS] agent_032
+[PASS] agent_054
+[PASS] agent_068
+[PASS] agent_071
+[PASS] agent_089
+[PASS] agent_100
+=== DONE ===

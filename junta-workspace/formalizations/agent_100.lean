@@ -68,7 +68,7 @@ disjoint linear forms, one per block of size `ℓ`.  This is the task's family
 `∏_{i=1}^{ℓ}(∑_{j=1}^{e} x_{(i-1)e+j})` with the two ranges read as `e` outer
 factors of inner width `ℓ` (`e = min d k`), which is what keeps the total degree
 equal to `e ≤ d`. -/
-def witnessPoly (n ℓ e : ℕ) : MvPolynomial (Fin n) ℝ :=
+noncomputable def witnessPoly (n ℓ e : ℕ) : MvPolynomial (Fin n) ℝ :=
   ∏ i ∈ Finset.range e, ∑ a ∈ block n ℓ i, (X a : MvPolynomial (Fin n) ℝ)
 
 /-- For `1 ≤ k ≤ d` (so `min d k = k`) and any block size `ℓ ≥ 1`, on a slice

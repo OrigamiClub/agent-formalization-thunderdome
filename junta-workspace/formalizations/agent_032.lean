@@ -75,7 +75,7 @@ number `i*e + j` (no wraparound; the relevant range `ℓ*e ≤ n` is supplied by
 hypothesis `hn` in the theorem below). Indexing is `0`-based. -/
 noncomputable def witnessFun (n k e ℓ : ℕ) : Slice n k → ℝ :=
   fun S => ∏ i ∈ Finset.range ℓ,
-    ((S.1.filter (fun x => i * e ≤ (x : ℕ) ∧ (x : ℕ) < i * e + e)).card : ℝ)
+    ((S.1.filter (fun x : Fin n => i * e ≤ (x : ℕ) ∧ (x : ℕ) < i * e + e)).card : ℝ)
 
 /-- **Explicit witness.**
 With `e = min d k`, `ℓ ≥ 1`, and `n ≥ 2 * (ℓ * e)`, the function `witnessFun n k e ℓ` is

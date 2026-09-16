@@ -1,3 +1,2 @@
 /Users/hye-ryeonlee/agent-formalization-thunderdome/junta-workspace/formalizations/agent_003.lean:60:8: warning: declaration uses `sorry`
-/Users/hye-ryeonlee/agent-formalization-thunderdome/junta-workspace/formalizations/agent_003.lean:91:4: error(lean.dependsOnNoncomputable): failed to compile definition, consider marking it as 'noncomputable' because it depends on 'instCommRingMvPolynomial', which is 'noncomputable'
 /Users/hye-ryeonlee/agent-formalization-thunderdome/junta-workspace/formalizations/agent_003.lean:108:8: warning: declaration uses `sorry`

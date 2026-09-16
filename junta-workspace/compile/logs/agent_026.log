@@ -1,11 +1,3 @@
 /Users/hye-ryeonlee/agent-formalization-thunderdome/junta-workspace/formalizations/agent_026.lean:52:8: warning: declaration uses `sorry`
 /Users/hye-ryeonlee/agent-formalization-thunderdome/junta-workspace/formalizations/agent_026.lean:65:8: warning: declaration uses `sorry`
-/Users/hye-ryeonlee/agent-formalization-thunderdome/junta-workspace/formalizations/agent_026.lean:79:26: error: Application type mismatch: The argument
-  ↑S
-has type
-  Finset (Fin n)
-but is expected to have type
-  Finset ℕ
-in the application
-  {c ∈ ↑S | c / e = i}
 /Users/hye-ryeonlee/agent-formalization-thunderdome/junta-workspace/formalizations/agent_026.lean:85:8: warning: declaration uses `sorry`

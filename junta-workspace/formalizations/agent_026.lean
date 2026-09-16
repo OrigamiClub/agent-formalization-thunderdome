@@ -76,7 +76,7 @@ theorem filmus_ihringer_converse :
 `f(S) = ∏_{i=0}^{ℓ-1} |S ∩ Bᵢ|`, which is exactly
 `∏_{i=1}^{ℓ} (∑_{j=1}^{e} x_{(i-1)e+j})` evaluated at the indicator vector of `S`. -/
 def witnessFun (n k e ℓ : ℕ) (S : Slice n k) : ℝ :=
-  ∏ i ∈ Finset.range ℓ, ((S.1.filter (fun c => (c : ℕ) / e = i)).card : ℝ)
+  ∏ i ∈ Finset.range ℓ, ((S.1.filter (fun c : Fin n => (c : ℕ) / e = i)).card : ℝ)
 
 /-- **Filmus–Ihringer (explicit family).**  For `d ≥ 1`, `1 ≤ k < 2d`, any number of
 blocks `ℓ ≥ 1`, and any `n ≥ 2·ℓ·e` with `e = min d k`, the function `witnessFun` is

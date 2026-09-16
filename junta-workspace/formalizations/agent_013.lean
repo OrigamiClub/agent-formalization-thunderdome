@@ -71,7 +71,7 @@ theorem filmus_ihringer (d : ℕ) (hd : 1 ≤ d) :
 
 /-- The `i`-th block (0-indexed) of size `e`: the sum of the coordinate variables `x_c`
 with `i·e ≤ c < (i+1)·e`.  This is `∑_{j=1}^{e} x_{(i-1)e+j}` in 1-indexed notation. -/
-def blockSum (n e i : ℕ) : MvPolynomial (Fin n) ℝ :=
+noncomputable def blockSum (n e i : ℕ) : MvPolynomial (Fin n) ℝ :=
   ∑ c ∈ univ.filter (fun c : Fin n => i * e ≤ (c : ℕ) ∧ (c : ℕ) < (i + 1) * e),
     MvPolynomial.X c
 
@@ -80,7 +80,7 @@ def blockSum (n e i : ℕ) : MvPolynomial (Fin n) ℝ :=
 The blocks use disjoint coordinate ranges, so this polynomial is already multilinear of
 total degree `ℓ·e`; the content of the theorem is that on the slice it nevertheless
 agrees with a multilinear polynomial of total degree ≤ `d`. -/
-def fiFamily (n ℓ e : ℕ) : MvPolynomial (Fin n) ℝ :=
+noncomputable def fiFamily (n ℓ e : ℕ) : MvPolynomial (Fin n) ℝ :=
   ∏ i ∈ range ℓ, blockSum n e i
 
 /-- **Explicit witnesses for the converse.**

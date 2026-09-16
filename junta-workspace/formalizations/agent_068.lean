@@ -44,6 +44,7 @@ of `Fin n`. -/
 def block (n e i : ℕ) : Finset (Fin n) :=
   Finset.univ.filter (fun x : Fin n => (i - 1) * e ≤ (x : ℕ) ∧ (x : ℕ) < i * e)
 
+open Classical in
 /-- The explicit witnessing family: the OR of `ℓ` disjoint conjunctions ("blocks") of
 `e` coordinates each, `S ↦ [∃ i ≤ ℓ, block i ⊆ S]`.
 
@@ -52,7 +53,6 @@ fit simultaneously in a `k`-set; therefore on the slice this function coincides 
 the multilinear polynomial `∑_{i=1}^{ℓ} ∏_{j=1}^{e} x_{(i-1)e+j}` and is Boolean of
 degree `e ≤ d`.  (The prose of the theorem writes `∏_i (∑_j x)`; that real polynomial
 is not `{0,1}`-valued on the slice, so we take the `∑_i ∏_j x` reading — see the note.) -/
-open Classical in
 noncomputable def addrFun (n k e ℓ : ℕ) : Slice n k → ℝ :=
   fun S => if (∃ i, 1 ≤ i ∧ i ≤ ℓ ∧ block n e i ⊆ S.1) then 1 else 0
 

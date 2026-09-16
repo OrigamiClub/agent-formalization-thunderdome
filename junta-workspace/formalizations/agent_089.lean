@@ -75,7 +75,7 @@ underlying index in `ℕ` lies in the `i`-th block `{i·e, …, i·e + e - 1}`. 
 noncomputable def familyFun (d k n ℓ : ℕ) (S : Slice n k) : ℝ :=
   ∏ i ∈ Finset.range ℓ,
     ∑ j ∈ Finset.range (min d k),
-      ((S.val.filter (fun a => (a : ℕ) = i * min d k + j)).card : ℝ)
+      ((S.val.filter (fun a : Fin n => (a : ℕ) = i * min d k + j)).card : ℝ)
 
 /-- **Converse (Filmus–Ihringer), explicit family.**
 For `1 ≤ k < 2d`, `e = min d k`, and any `ℓ ≥ 1`, whenever `n ≥ 2·ℓ·e` (and `n ≥ 2k`)

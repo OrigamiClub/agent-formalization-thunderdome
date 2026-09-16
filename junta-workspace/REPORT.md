@@ -24,25 +24,25 @@ failure. No bridging/equivalence pass was done.
 ## Compilation result
 
 <!-- COMPILE_RESULT -->
-**90 / 100 PASS**, 10 FAIL (run 2026-09-03, strictly serial — every file does
-`import Mathlib` and this box has 8 GB RAM). PASS = elaborates and type-checks;
-the expected `declaration uses 'sorry'` warning does not count as a failure.
+**100 / 100 PASS** (run 2026-09-03, strictly serial — every file does
+`import Mathlib` and this box has 8 GB RAM; fixes applied and reverified
+2026-09-15). PASS = elaborates and type-checks; the expected
+`declaration uses 'sorry'` warning does not count as a failure.
 
-**None of the 10 failures is a wrong or mis-stated theorem.** In every failing
-file the theorem propositions themselves elaborate (the `sorry` warnings fire
-*after* the error); the break is always in an auxiliary `def` — overwhelmingly
-the explicit witness family — or a stray token. Three mechanical classes:
+The initial pass found 10 failures, **none a wrong or mis-stated theorem** — in
+every case the theorem propositions themselves elaborated (the `sorry` warnings
+fired *after* the error); the break was always in an auxiliary `def` —
+overwhelmingly the explicit witness family — or a stray token. Three mechanical
+classes, each fixed with a one-line change and reverified clean:
 
-| Class | Count | Agents | Fix |
+| Class | Count | Agents | Fix applied |
 |---|---|---|---|
-| Missing `noncomputable` on a `def` built from `MvPolynomial` (`instCommRingMvPolynomial` is noncomputable) | 5 | 003, 013, 054, 071, 100 | prepend `noncomputable` |
-| Witness family: `S.1.filter (fun a => … (a : ℕ) …)` — `S.1 : Finset (Fin n)` but the `ℕ`-literal block predicate forces the binder to `ℕ`, so `↑S` is asked to coerce to `Finset ℕ` and can't | 4 | 015, 026, 032, 089 | ascribe the binder `fun a : Fin n =>` (or filter on `a.val`) |
-| Stray `open … in` token mid-declaration (`unexpected token 'open'; expected 'lemma'`) | 1 | 068 | move the `open` above the decl |
+| Missing `noncomputable` on a `def` built from `MvPolynomial` (`instCommRingMvPolynomial` is noncomputable) | 5 | 003, 013, 054, 071, 100 | prepended `noncomputable` |
+| Witness family: `S.1.filter (fun a => … (a : ℕ) …)` — `S.1 : Finset (Fin n)` but the `ℕ`-literal block predicate forced the binder to `ℕ`, so `↑S` was asked to coerce to `Finset ℕ` and couldn't | 4 | 015, 026, 032, 089 | ascribed the binder `fun a : Fin n =>` |
+| Stray `open … in` token mid-declaration (`unexpected token 'open'; expected 'lemma'`) — the docstring sat between `open Classical in` and the `def`, but `open … in` wraps the whole next command so the docstring couldn't attach | 1 | 068 | moved the docstring to after `open Classical in` |
 
-So the *effective* result is 90 clean + 10 one-line fixes away from clean, with
-0 files carrying a mathematically incorrect statement — matching the earlier runs'
-takeaway that compilation catches encoding/syntax slips inspection misses, never a
-wrong proposition.
+Matches the earlier runs' takeaway that compilation catches encoding/syntax
+slips inspection misses, never a wrong proposition.
 
 Details: [`compile/results.csv`](compile/results.csv), per-file logs in
 [`compile/logs/`](compile/logs). The earlier `-P 6` parallel attempt melted the

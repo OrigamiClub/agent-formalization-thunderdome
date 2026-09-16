@@ -73,11 +73,11 @@ theorem boolean_degree_not_junta
 /-- The explicit witnessing polynomial
 `∏_{i=0}^{ℓ-1} (∑_{j=0}^{e-1} x_{i·e + j})`, a `0`-indexed version of
 `∏_{i=1}^{ℓ} (∑_{j=1}^{e} x_{(i-1)e+j})`. -/
-def familyPoly (e ℓ : ℕ) : MvPolynomial ℕ ℝ :=
+noncomputable def familyPoly (e ℓ : ℕ) : MvPolynomial ℕ ℝ :=
   ∏ i ∈ Finset.range ℓ, ∑ j ∈ Finset.range e, MvPolynomial.X (i * e + j)
 
 /-- The function on the slice obtained by evaluating `familyPoly e ℓ` at the indicator vector. -/
-def familyFun (n k e ℓ : ℕ) : Slice n k → ℝ :=
+noncomputable def familyFun (n k e ℓ : ℕ) : Slice n k → ℝ :=
   fun S => MvPolynomial.eval (ind S) (familyPoly e ℓ)
 
 /-- **Converse direction (explicit witnesses).**

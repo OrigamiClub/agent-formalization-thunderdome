@@ -49,7 +49,7 @@ With `e` the block size and blocks `B_i = {(i-1)e+1, …, i e}` for `i = 1, …,
 of elements of `S` lying in that block. -/
 noncomputable def fiWitness (e ℓ : ℕ) (S : Slice n k) : ℝ :=
   ∏ i ∈ Finset.range ℓ,
-    ((S.1.filter (fun a => i * e ≤ (a : ℕ) ∧ (a : ℕ) < i * e + e)).card : ℝ)
+    ((S.1.filter (fun a : Fin n => i * e ≤ (a : ℕ) ∧ (a : ℕ) < i * e + e)).card : ℝ)
 
 /-- **Positive direction (Filmus–Ihringer).**
 For `d ≥ 1` there is a constant `m = m(d)` such that: whenever `k ≥ 2d` and `n ≥ 2k`, every

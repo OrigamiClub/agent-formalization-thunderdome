@@ -88,11 +88,12 @@ run was compiled against the same pinned checkout.
   of the two-directional theorem to state, and the witness formula — **35 agents
   independently flagged that the prompt's literal `∏_i(Σ_j x)` is not Boolean on
   the slice and substituted the paper's dual `Σ_i(∏_j x)` form**.
-- **Compiled**: **90/100 PASS**. All 10 failures are mechanical and leave the
-  theorem statements themselves elaborating: 5× a helper `def` needs
-  `noncomputable` (`MvPolynomial` ring is noncomputable), 4× a `Finset (Fin n)`
-  vs. `ℕ` binder-coercion slip in the witness family, 1× a stray `open` token.
-  Zero wrong propositions.
+- **Compiled**: **100/100 PASS**. The first pass found 10 mechanical failures
+  that all left the theorem statements themselves elaborating (5× a helper
+  `def` needing `noncomputable` since `MvPolynomial`'s ring is noncomputable,
+  4× a `Finset (Fin n)` vs. `ℕ` binder-coercion slip in the witness family, 1×
+  a stray `open` token) — zero wrong propositions. Each was a one-line fix,
+  applied and reverified clean.
 - Details: [`junta-workspace/REPORT.md`](junta-workspace/REPORT.md),
   [`junta-workspace/PROMPT.md`](junta-workspace/PROMPT.md),
   [`junta-workspace/compile/results.csv`](junta-workspace/compile/results.csv).
@@ -107,5 +108,5 @@ produced real structural diversity across 6 groups. Where compilation was run
 (both 20-agent runs and the 100-agent junta run) it caught real issues pure
 inspection missed — a syntax incompatibility in 2/20 GVB files, a wrong lemma name
 during bridge-writing, and 10/100 junta files with a missing `noncomputable`, a
-binder-coercion slip, or a stray token — but never a mathematically wrong
-statement.
+binder-coercion slip, or a stray token (all fixed, now 100/100) — but never a
+mathematically wrong statement.

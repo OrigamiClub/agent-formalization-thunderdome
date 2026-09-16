@@ -86,7 +86,7 @@ theorem converse_direction (d k : ℕ) (hd : 1 ≤ d) (hk : 1 ≤ k) (hk2 : k < 
 (a sum of `ℓ` disjoint "block" monomials, each of degree `e ≤ d`).
 Coordinates whose index is `≥ n` are replaced by `0`; this does not happen once
 `ℓ · e ≤ n`. -/
-def witnessPoly (n d k ℓ : ℕ) : MvPolynomial (Fin n) ℝ :=
+noncomputable def witnessPoly (n d k ℓ : ℕ) : MvPolynomial (Fin n) ℝ :=
   ∑ i ∈ Finset.range ℓ,
     ∏ j ∈ Finset.range (min d k),
       (if h : i * min d k + j < n then
@@ -94,7 +94,7 @@ def witnessPoly (n d k ℓ : ℕ) : MvPolynomial (Fin n) ℝ :=
         else 0)
 
 /-- The slice function induced by `witnessPoly`. -/
-def witnessFn (n d k ℓ : ℕ) : Slice n k → ℝ :=
+noncomputable def witnessFn (n d k ℓ : ℕ) : Slice n k → ℝ :=
   fun S => MvPolynomial.eval (indicator S.1) (witnessPoly n d k ℓ)
 
 /-- **Filmus–Ihringer, explicit family.**
